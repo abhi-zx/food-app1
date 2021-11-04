@@ -11,10 +11,18 @@
     <div id ='div1'class="container">
 
     </div>
+    <div id="show"></div>
     <script type='module'>
         import navbar from './components/navbar.js'
+        import {getdata,append} from './script/randome.js';
         var div1=document.getElementById('div1');
         div1.innerHTML = navbar()
+        // www.themealdb.com/api/json/v1/1/random.php
+        var data = getdata(`www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`)
+        data.then((res)=>{
+            var show = document.getElementById('show');
+            append(res, show);
+   })
     </script>
 </body>
 </html>
